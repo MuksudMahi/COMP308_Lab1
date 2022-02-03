@@ -27,7 +27,7 @@ function FormLayout(props) {
   return (
     <div className="Login">
       <Form onSubmit={props.handleSubmit}>
-        <Form.Group className="mb-3" size="lg" controlId="formBasicEmail">
+        <Form.Group className="mb-3" size="lg" controlId="formEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
@@ -36,7 +36,7 @@ function FormLayout(props) {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" size="lg" controlId="formBasicPassword">
+        <Form.Group className="mb-3" size="lg" controlId="formPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
