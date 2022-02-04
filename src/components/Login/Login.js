@@ -4,6 +4,8 @@ import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
 
+import auth from "../../Auth/auth";
+
 export default function Login(props) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -11,8 +13,11 @@ export default function Login(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("I am here");
-    navigate("/feedback");
+    if (email !== undefined && password !== undefined) {
+      auth.onAuthentication();
+      auth.saveToken(email);
+      navigate("/feedback", { replace: true });
+    }
   };
   return (
     <FormLayout
