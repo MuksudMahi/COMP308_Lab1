@@ -30,7 +30,7 @@ function App() {
             path="/thanks"
             element={
               <RequireAuth>
-                <Feedback />
+                <Thanks />
               </RequireAuth>
             }
           ></Route>

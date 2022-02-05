@@ -17,7 +17,6 @@ export default function Feedback(props) {
 
   useEffect(() => {
     const userToken = auth.getToken();
-    console.log(userToken);
     if (userToken !== "") {
       setEmail(userToken);
     }
@@ -25,6 +24,16 @@ export default function Feedback(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const feedbackData = {
+      email,
+      courseName,
+      courseCode,
+      rate,
+      selectedOption,
+      comment,
+    };
+
+    sessionStorage.setItem("feedbackData", JSON.stringify(feedbackData));
     navigate("/thanks");
   };
 
@@ -57,6 +66,7 @@ function CommentForm(props) {
           <Form.Control
             type="text"
             onChange={(event) => props.setCourseName(event.target.value)}
+            required
           />
         </Form.Group>
         <Form.Group controlId="courseCode">
@@ -64,6 +74,7 @@ function CommentForm(props) {
           <Form.Control
             type="text"
             onChange={(event) => props.setCourseCode(event.target.value)}
+            required
           />
         </Form.Group>
         <Form.Group controlId="formEmail">
@@ -72,6 +83,7 @@ function CommentForm(props) {
             type="text"
             defaultValue={props.email}
             disabled={true}
+            required
           />
         </Form.Group>
 
@@ -80,6 +92,7 @@ function CommentForm(props) {
           <Form.Select
             value={props.rate}
             onChange={(event) => props.setRate(event.target.value)}
+            required
           >
             <option value="5">5</option>
             <option value="4">4</option>
@@ -117,6 +130,7 @@ function CommentForm(props) {
             as="textarea"
             onChange={(event) => props.setComment(event.target.value)}
             rows={5}
+            required
           />
         </Form.Group>
         <br></br>
