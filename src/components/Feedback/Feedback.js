@@ -66,7 +66,7 @@ function CommentForm(props) {
           <Form.Control
             type="text"
             onChange={(event) => props.setCourseName(event.target.value)}
-            required
+            required={true}
           />
         </Form.Group>
         <Form.Group controlId="courseCode">
@@ -74,7 +74,7 @@ function CommentForm(props) {
           <Form.Control
             type="text"
             onChange={(event) => props.setCourseCode(event.target.value)}
-            required
+            required={true}
           />
         </Form.Group>
         <Form.Group controlId="formEmail">
@@ -83,7 +83,7 @@ function CommentForm(props) {
             type="text"
             defaultValue={props.email}
             disabled={true}
-            required
+            required={true}
           />
         </Form.Group>
 
@@ -92,7 +92,7 @@ function CommentForm(props) {
           <Form.Select
             value={props.rate}
             onChange={(event) => props.setRate(event.target.value)}
-            required
+            required={true}
           >
             <option value="5">5</option>
             <option value="4">4</option>

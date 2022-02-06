@@ -38,6 +38,7 @@ function FormLayout(props) {
             type="email"
             placeholder="Enter email"
             onChange={(event) => props.setEmail(event.target.value)}
+            required={true}
           />
         </Form.Group>
 
@@ -47,6 +48,7 @@ function FormLayout(props) {
             type="password"
             placeholder="Password"
             onChange={(event) => props.setPassword(event.target.value)}
+            required={true}
           />
         </Form.Group>
 
